@@ -1,0 +1,1 @@
+2024/12/03 07:51:18 [error] 21#21: *2 open() "/baifu/nb-admin/public/favicon.ico" failed (2: No such file or directory), client: 192.168.65.1, server: nb-admin.localhost.net, request: "GET /favicon.ico HTTP/1.1", host: "phpmyadmin", referrer: "http://phpmyadmin/"

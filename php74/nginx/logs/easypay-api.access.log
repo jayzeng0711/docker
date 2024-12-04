@@ -1,0 +1,2 @@
+192.168.65.1 - - [03/Dec/2024:07:32:47 +0000] "POST //api/User/signUp HTTP/1.1" 500 68494 "-" "PostmanRuntime/7.41.2"
+192.168.65.1 - - [03/Dec/2024:07:33:43 +0000] "POST //api_digital/LotteryCategory/getCategoryDisplayList HTTP/1.1" 404 59003 "-" "PostmanRuntime/7.41.2"

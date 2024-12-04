@@ -1,0 +1,49 @@
+###############################################################################
+#                          Generated on phpdocker.io                          #
+###############################################################################
+services:
+    redis:
+        image: 'redis:alpine'
+
+    # mysql:
+    #     image: 'mysql:8.0'
+    #     volumes:
+    #         - '${PROJECT_DOCUMENT_ROOT}/:/baifu'
+    #     environment:
+    #         - MYSQL_ROOT_PASSWORD=root
+    #         - MYSQL_DATABASE=fusion
+    #         - MYSQL_USER=fusion
+    #         - MYSQL_PASSWORD=root
+    #     ports:
+    #         - '1801:3306'
+
+    webserver:
+        image: 'nginx:alpine'
+        volumes:
+            - './nginx/sites-available/:/etc/nginx/conf.d/'
+            - './nginx/logs:/var/log/nginx'  # Nginx 日志路径
+        ports:
+            - '80:80'
+
+    php7.4:
+        build: ../config/php74
+        container_name: php7.4
+        volumes:
+        - '${PROJECT_DOCUMENT_ROOT}/:/baifu'
+        - ../config/php74/php.ini:/usr/local/etc/php/php.ini
+        - ../config/php74/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf
+        - ../logs/php74/:/var/log/php-fpm/
+        - ../config/php74/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini:ro
+        ports:
+        - 9081:9000
+
+    # phpmyadmin-client:
+    #     image: phpmyadmin/phpmyadmin
+    #     links:
+    #         - mysql
+    #     ports:
+    #         - '8080:80'
+    #     environment:
+    #         - PMA_HOSTS=rm-gs512i0zqzop9792r1o.mysql.singapore.rds.aliyuncs.com
+    #         - PMA_PORTS=3306
+    #         # - MYSQL_ROOT_PASSWORD=root
