@@ -1,22 +1,17 @@
-###############################################################################
-#                          Generated on phpdocker.io                          #
-###############################################################################
 services:
     redis:
         image: 'redis:alpine'
 
-    # mysql:
-    #     image: 'mysql:8.0'
-    #     volumes:
-    #         - '${PROJECT_DOCUMENT_ROOT}/:/var/lib/mysql'
-    #     environment:
-    #         - MYSQL_ROOT_HOST=127.0.0.1
-    #         - MYSQL_ROOT_PASSWORD=root
-    #         - MYSQL_DATABASE=nb
-    #         - MYSQL_USER=root
-    #         - MYSQL_PASSWORD=1234
-    #     ports:
-    #         - '1801:3306'  
+    mysql:
+        image: 'mysql:8.0'
+        volumes:
+            - /usr/local/mysql:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: 'test_pass'
+            MYSQL_USER: 'test'
+            MYSQL_PASS: 'pass'
+        ports:
+            - '1801:3306'  
 
     webserver:
         image: 'nginx:alpine'
@@ -37,14 +32,3 @@ services:
         - ../config/php81/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini:ro
         ports:
         - 9081:9000
-
-    # phpmyadmin-client:
-    #     image: phpmyadmin/phpmyadmin
-    #     links:
-    #         - mysql
-    #     ports:
-    #         - '8080:80'
-    #     environment:
-    #         - PMA_HOSTS=rm-gs51dhq17z0c7x11pmo.mysql.singapore.rds.aliyuncs.com 
-    #         - PMA_PORTS=3306
-    #         # - MYSQL_ROOT_PASSWORD=root

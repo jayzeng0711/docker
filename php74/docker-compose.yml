@@ -5,17 +5,16 @@ services:
     redis:
         image: 'redis:alpine'
 
-    # mysql:
-    #     image: 'mysql:8.0'
-    #     volumes:
-    #         - '${PROJECT_DOCUMENT_ROOT}/:/baifu'
-    #     environment:
-    #         - MYSQL_ROOT_PASSWORD=root
-    #         - MYSQL_DATABASE=fusion
-    #         - MYSQL_USER=fusion
-    #         - MYSQL_PASSWORD=root
-    #     ports:
-    #         - '1801:3306'
+    mysql:
+        image: 'mysql:8.0'
+        volumes:
+            - /usr/local/mysql:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: 'test_pass'
+            MYSQL_USER: 'test'
+            MYSQL_PASS: 'pass'
+        ports:
+            - '1801:3306'
 
     webserver:
         image: 'nginx:alpine'

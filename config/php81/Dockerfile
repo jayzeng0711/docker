@@ -6,7 +6,7 @@ ADD sources_debian11.list /etc/apt/sources.list
 
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
 
-COPY ./config/php81/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
     && echo $TZ > /etc/timezone \ 
