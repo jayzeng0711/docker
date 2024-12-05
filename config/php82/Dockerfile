@@ -4,6 +4,8 @@ ENV TZ=Asia/Shanghai
 
 ADD sources_debian11.list /etc/apt/sources.list
 
+COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
