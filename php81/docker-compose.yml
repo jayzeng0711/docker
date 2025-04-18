@@ -16,6 +16,7 @@ services:
     webserver:
         image: 'nginx:alpine'
         volumes:
+            - '${PROJECT_DOCUMENT_ROOT}/:/baifu'
             - './nginx/sites-available/:/etc/nginx/conf.d/'
             - './nginx/logs:/var/log/nginx'  # Nginx 日志路径
         ports:
