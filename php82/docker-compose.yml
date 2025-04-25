@@ -25,7 +25,7 @@ services:
         build: ../config/php82
         container_name: php8.2
         volumes:
-        - '${PROJECT_DOCUMENT_ROOT}/:/jayzeng'
+        - '${PROJECT_DOCUMENT_ROOT}/:/baifu'
         - ../config/php82/php.ini:/usr/local/etc/php/php.ini
         - ../config/php82/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf
         - ../logs/php82/:/var/log/php-fpm/
