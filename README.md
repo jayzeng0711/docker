@@ -10,9 +10,12 @@
 #### docker-compose.yml
 1.redis
 2.mysql
-    2.1: volumes 本地要安裝 安裝完路徑為 /usr/local/mysql:/var/lib/mysql
+    <!-- 2.1: volumes 本地要安裝 安裝完路徑為 /usr/local/mysql:/var/lib/mysql
     /usr/local/mysql 為本地安裝mysql的路徑
-    2.2: 安裝sequel Ace 本地 host127.0.0.1  帳號 root 密碼 test_pass port 1801
+    2.2: 安裝sequel Ace 本地 host127.0.0.1  帳號 root 密碼 test_pass port 1801 -->
+    docker pull mysql:8
+    docker run --name sql1 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=test1234 -d mysql:8
+    docker run --name sql2 -p 1801:3306 -e MYSQL_ROOT_PASSWORD=test1234 -d mysql:8
 3.nginx
 4.php+版本
 5.env PROJECT_DOCUMENT_ROOT要改 
