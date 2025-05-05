@@ -26,7 +26,10 @@
 server_name 
 root
 fastcgi_pass (docker-compose.yml中的php版本):9000
-### 7. 調整本機的hosts
+#### 路徑
+專案放在 /Users/user/docker-php-env 及 /Users/user/＊＊＊＊（此地方也是env路徑）
+
+### 調整本機的hosts
 在这一部分，提醒你需要调整 `/privates/etc/hosts` 文件，加入项目的网址。以下是当前项目的域名列表：
 
 127.0.0.1       fusion-local.spgamesmanager.net
